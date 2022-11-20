@@ -1,0 +1,11 @@
+{
+    "workDir": "dev",
+    "outDir": "build",
+    "css": {
+        "baseCss": "common",
+        "priority": [
+            "navigation",
+            "sidebar"
+        ]
+    }
+}
