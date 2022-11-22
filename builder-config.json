@@ -1,11 +1,12 @@
 {
     "workDir": "dev",
     "outDir": "build",
-    "css": {
-        "baseCss": "common",
-        "priority": [
-            "navigation",
-            "sidebar"
-        ]
+
+    "import": {
+        "cover": {
+            "sidebar": "s_sidebar",
+            "list": "s_list",
+            "home-cover": "s_cover_group"
+        }
     }
 }

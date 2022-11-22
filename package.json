@@ -2,7 +2,11 @@
   "name": "raven",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "scss-build": "npx sass ./dev/scss/style.scss:./build/style.css --no-source-map --style=compressed",
+    "scss-compile": "npx sass ./dev/scss/style.scss:./compile/style.css --no-source-map --style=compressed",
+    "scss-watch": "npx sass ./dev/scss:./compile --no-source-map --watch"
+  },
   "author": "yeji",
   "license": "MIT"
 }

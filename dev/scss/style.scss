@@ -1,0 +1,123 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans&display=swap);
+
+:root {
+    --background: #0f131a;
+    --dark-blue: #181847;
+    --sig-blue: #008080;
+    --sig-yellow: #d49f2c;
+    --dim-sig-yellow: #ac7f20;
+    --text-white: #efefef;
+    --caption-gray: #666;
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$breakpoints: (
+  mobile : 0px, 
+  tablet : 800px, 
+  desktop: 1240px
+);
+
+@mixin media($keys...){
+    @each $key in $keys { 
+        @media (min-width: map-get($breakpoints, $key)) {
+            @content
+        } 
+    }
+}
+
+
+
+* {
+    font-family:'Noto Sans KR', 'Noto Sans', 'serif';
+    color: var(--text-white);
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    background-color: var(--background);
+}
+
+h1,h2,h3,h4,p {
+    margin: 0;
+}
+
+main {
+    @include media(mobile) {
+        margin: 20px 5%;
+    }
+    @include media(tablet) {
+        margin: 20px 15%;
+    }
+    @include media(desktop) {
+        margin: 20px 25%;
+    }
+}
+
+
+
+.animation {
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
+}
+
+div.layout {
+    display: grid;
+    grid-template-rows: minmax(100px, 11vh) auto min-content;
+    min-height: 100vh;
+}
+
+.stack-y {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+header.header {
+    display: grid;
+    grid-template-rows: 70% 30%;
+
+    div.home-link, nav.links {
+        @include center
+    }
+}
+
+
+
+footer.footer {
+    padding: 13px 20px;
+    border: solid 1px var(--dim-sig-yellow);
+
+    & .inf p,i {
+        color: var(--caption-gray);
+    }
+
+    & p,i {
+        @include media(mobile) {
+            font-size: .9em;
+        }
+        @include media(tablet, desktop) {
+            font-size: 1em;
+        }
+    }
+
+    @include media(mobile, tablet) {
+        margin: 20px 7%;
+    }
+    @include media(desktop) {
+        margin: 20px 15%;
+    }
+}
