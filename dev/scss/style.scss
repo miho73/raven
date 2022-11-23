@@ -4,17 +4,18 @@
 :root {
     --background: #0f131a;
     --dark-blue: #181847;
-    --sig-blue: #008080;
+    --sig-blue: #004e4e;
+    --light-blue: #008080;
     --sig-yellow: #d49f2c;
     --dim-sig-yellow: #ac7f20;
     --text-white: #efefef;
     --caption-gray: #666;
 }
 
-@mixin center {
+@mixin center($cfg) {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: $cfg;
 }
 
 $breakpoints: (
@@ -23,7 +24,7 @@ $breakpoints: (
   desktop: 1240px
 );
 
-@mixin media($keys...){
+@mixin media($keys...) {
     @each $key in $keys { 
         @media (min-width: map-get($breakpoints, $key)) {
             @content
@@ -61,22 +62,20 @@ main {
     }
 }
 
-
-
-.animation {
-    -webkit-transition: all .5s linear;
-    -moz-transition: all .5s linear;
-    -o-transition: all .5s linear;
-    transition: all .5s linear;
+@mixin animation {
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
 }
 
 div.layout {
     display: grid;
-    grid-template-rows: minmax(100px, 11vh) auto min-content;
+    grid-template-rows: minmax(130px, 11vh) auto min-content;
     min-height: 100vh;
 }
 
-.stack-y {
+@mixin stack-y {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -84,14 +83,75 @@ div.layout {
     gap: 10px;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 
 header.header {
     display: grid;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 45% 55%;
+    height: 100%;
 
-    div.home-link, nav.links {
-        @include center
+    div.home-link {
+        background-color: var(--dark-blue);
+    }
+
+    div.home-link {
+        @include center(center)
+    }
+
+    nav.links {
+        padding: 8px 0;
+        @include center(flex-start);
+        /*
+        border-width: 0 0 2px 0;
+        border-style: solid;
+        border-image: linear-gradient(to right, var(--light-blue), var(--sig-yellow), var(--light-blue));
+        border-image-slice: 1;
+        */
+        background: linear-gradient(to bottom, var(--dark-blue) 40%, var(--background) 100%);
+
+        & ul,li {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.tt_category li,ul {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        & a {
+            font-weight: 700;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+            @include animation;
+
+            &:hover {
+                border-color: var(--sig-yellow);
+            }
+        }
+    }
+}
+
+
+
+div.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    & > div.list-repeat {
+        width: calc((100% - 10px)/2);
+        height: fit-content;
     }
 }
 
@@ -100,12 +160,18 @@ header.header {
 footer.footer {
     padding: 13px 20px;
     border: solid 1px var(--dim-sig-yellow);
+    @include stack-y;
 
-    & .inf p,i {
+    & .link-site a {
+        width: 24px;
+        height: 24px;
+    }
+
+    & .inf p, i {
         color: var(--caption-gray);
     }
 
-    & p,i {
+    & p, i {
         @include media(mobile) {
             font-size: .9em;
         }

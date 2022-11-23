@@ -12,15 +12,14 @@
         </RavenRemove>
     </head>
     <body id="[##_body_id_##]">
-        <s_t3>
         <div class="layout">
             <header id="header" class="header">
                 <div class="home-link">
-                    <h1>[##_title_##]</h1>
+                    <a href="/">
+                        <h1>[##_title_##]</h1>
+                    </a>
                 </div>
-                <nav class="links">
-                    [##_blog_menu_##]
-                </nav>
+                <nav class="links">[##_category_list_##]</nav>
             </header>
             
             <RavenCover>
@@ -29,20 +28,29 @@
                 </main>
     
                 <main id="list">
-                    <p>List</p>
+                    <div id="list-empty" class="list-empty">
+                        <p>No article was found</p>
+                    </div>
+                    <div class="list-container">
+                        <div id="list-repeat" class="list-repeat">
+                            <img src="./dev/resources/고전역학 6.png">
+                            <p>[##_list_rep_title_##]</p>
+                        </div>
+                    </div>
                 </main>
             </RavenCover>
 
             <footer id="footer" class="footer">
                 <div class="links">
-
+                    <a class="link-site" href="https://github.com/miho73" target="_blank" title="Github">
+                        <img src="./dev/resources/github.svg">
+                    </a>
                 </div>
-                <div class="inf stack-y">
+                <div class="inf">
                     <p>Copyright 2022 Yeji. All rights reserved</p>
                     <p>Skin <i>Raven</i> was developed by Yeji</p>
                 </div>
             </footer>
         </div>
-        </s_t3>
     </body>
 </html>

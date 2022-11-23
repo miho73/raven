@@ -6,7 +6,9 @@
         "cover": {
             "sidebar": "s_sidebar",
             "list": "s_list",
-            "home-cover": "s_cover_group"
+            "home-cover": "s_cover_group",
+            "list-empty": "s_list_empty",
+            "list-repeat": "s_list_rep"
         }
     }
 }

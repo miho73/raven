@@ -1,5 +1,6 @@
 import json
 import sys
+import re
 from bs4 import BeautifulSoup
 
 import work.scss as scss
@@ -42,7 +43,13 @@ def imp(imptPath):
         if occur != None:
             occur.replace_with(BeautifulSoup('<'+toTag+'>\n'+str(occur)+'\n</'+toTag+'>', 'html.parser'))
 
-    # 3. separate into parts
+    # 3. change src
+    occurs = iHtml.select('img')
+    for occur in occurs:
+        oSrc = re.findall('"\.\/'+workDir+'\/resources\/(.*)"', str(occur))
+        occur['src'] = './images/'+oSrc[0]
+
+    # 4. separate into parts
     try:
         header = iHtml.select_one('#header')
         homeCover = iHtml.select_one('#home-cover').parent
