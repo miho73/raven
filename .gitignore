@@ -6,3 +6,5 @@ compile
 build
 
 Raven.code-workspace
+
+.vscode
