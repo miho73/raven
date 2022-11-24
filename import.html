@@ -30,12 +30,20 @@
                 <main id="list">
                     <div id="list-empty" class="list-empty">
                         <p>No article was found</p>
+                        <ul>
+                            <li>Try different keywords.</li>
+                            <li>Try more general keywords.</li>
+                        </ul>
                     </div>
                     <div class="list-container">
-                        <div id="list-repeat" class="list-repeat">
-                            <img src="./dev/resources/고전역학 6.png">
-                            <p>[##_list_rep_title_##]</p>
-                        </div>
+                        <a id="list-repeat" class="list-repeat" href="[##_list_rep_link_##]">
+                            <img src="[##_list_rep_thumbnail_url_##]" alt="[##_list_rep_title_##] Thumbnail">
+                            <div class="article-info">
+                                <h3 class="title">[##_list_rep_title_##]</h3>
+                                <p class="written">[##_list_rep_date_year_##]/[##_list_rep_date_month_##]/[##_list_rep_date_day_##]&nbsp;[##_list_rep_date_hour_##]:[##_list_rep_date_minute_##]:[##_list_rep_date_second_##] - [##_list_rep_author_##]</p>
+                                <div class="prev">[##_list_rep_summary_##]</div>
+                            </div>
+                        </a>
                     </div>
                 </main>
             </RavenCover>
@@ -43,7 +51,7 @@
             <footer id="footer" class="footer">
                 <div class="links">
                     <a class="link-site" href="https://github.com/miho73" target="_blank" title="Github">
-                        <img src="./dev/resources/github.svg">
+                        <img src="./dev/resources/github.svg" alt="Github Link">
                     </a>
                 </div>
                 <div class="inf">

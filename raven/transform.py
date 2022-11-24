@@ -47,7 +47,8 @@ def imp(imptPath):
     occurs = iHtml.select('img')
     for occur in occurs:
         oSrc = re.findall('"\.\/'+workDir+'\/resources\/(.*)"', str(occur))
-        occur['src'] = './images/'+oSrc[0]
+        if(len(oSrc) != 0):
+            occur['src'] = './images/'+oSrc[0]
 
     # 4. separate into parts
     try:

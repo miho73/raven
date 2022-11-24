@@ -6,10 +6,12 @@
     --dark-blue: #181847;
     --sig-blue: #004e4e;
     --light-blue: #008080;
+    --dark-yellow: #ac7f20;
     --sig-yellow: #d49f2c;
-    --dim-sig-yellow: #ac7f20;
+    --light-yellow: #ddbb70;
     --text-white: #efefef;
     --caption-gray: #666;
+    --w-caption-gray: #b9b9b9;;
 }
 
 @mixin center($cfg) {
@@ -62,11 +64,11 @@ main {
     }
 }
 
-@mixin animation {
-    -webkit-transition: all .2s linear;
-    -moz-transition: all .2s linear;
-    -o-transition: all .2s linear;
-    transition: all .2s linear;
+@mixin animation($time) {
+    -webkit-transition: all $time linear;
+    -moz-transition: all $time linear;
+    -o-transition: all $time linear;
+    transition: all $time linear;
 }
 
 div.layout {
@@ -94,11 +96,11 @@ header.header {
     grid-template-rows: 45% 55%;
     height: 100%;
 
-    div.home-link {
+    .home-link {
         background-color: var(--dark-blue);
     }
 
-    div.home-link {
+    .home-link {
         @include center(center)
     }
 
@@ -131,7 +133,7 @@ header.header {
             font-weight: 700;
             padding-bottom: 3px;
             border-bottom: 2px solid transparent;
-            @include animation;
+            @include animation(.3s);
 
             &:hover {
                 border-color: var(--sig-yellow);
@@ -142,6 +144,7 @@ header.header {
 
 
 
+$repeat-height: 200px;
 div.list-container {
     display: flex;
     flex-wrap: wrap;
@@ -149,9 +152,50 @@ div.list-container {
     justify-content: space-between;
     align-items: flex-end;
 
-    & > div.list-repeat {
-        width: calc((100% - 10px)/2);
-        height: fit-content;
+    & > .list-repeat {
+        width: 100%;
+        height: $repeat-height;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        display: block;
+
+        background: linear-gradient(to left, var(--light-blue), var(--sig-blue));
+
+        @include animation(0.2s);
+
+        &:hover {
+            transform: scale(1.006);
+            box-shadow: 0px 0px 5px 2px #222;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: $repeat-height;
+            aspect-ratio: 1.414;
+            -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+            mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+        }
+
+        .article-info {
+            margin-left: calc($repeat-height * 1.414);
+            padding: 20px;
+            max-height: calc(100% - 40px);
+            overflow: hidden;
+
+            @include stack-y();
+
+            .title {
+                color: var(--light-yellow);
+            }
+
+            .written {
+                font-size: .9em;
+                color: var(--w-caption-gray);
+            }
+        }
     }
 }
 
@@ -159,7 +203,7 @@ div.list-container {
 
 footer.footer {
     padding: 13px 20px;
-    border: solid 1px var(--dim-sig-yellow);
+    border: solid 1px var(--dark-yellow);
     @include stack-y;
 
     & .link-site a {
