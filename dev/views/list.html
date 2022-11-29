@@ -1,7 +1,7 @@
 <s_list>
-<main id="list">
+<main rid="list">
 <s_list_empty>
-<div class="list-empty" id="list-empty">
+<div class="list-empty" rid="list-empty">
 <p>No article was found</p>
 <ul>
 <li>Try different keywords.</li>
@@ -11,7 +11,7 @@
 </s_list_empty>
 <div class="list-container">
 <s_list_rep>
-<a class="list-repeat" href="[##_list_rep_link_##]" id="list-repeat">
+<a class="list-repeat" href="[##_list_rep_link_##]" rid="list-repeat">
 <img alt="[##_list_rep_title_##] Thumbnail" src="[##_list_rep_thumbnail_url_##]"/>
 <div class="article-info">
 <h3 class="title">[##_list_rep_title_##]</h3>
@@ -20,6 +20,15 @@
 </div>
 </a>
 </s_list_rep>
+<s_paging>
+<div class="list-paging" rid="list-paging">
+<a [##_prev_page_##]="" class="[##_no_more_prev_##]">◀ PREV</a>
+<s_paging_rep>
+<a [##_paging_rep_link_##]="" class="list-element" rid="list-element">[##_paging_rep_link_num_##]</a>
+</s_paging_rep>
+<a [##_next_page_##]="" class="[##_no_more_next_##]">NEXT ▶</a>
+</div>
+</s_paging>
 </div>
 </main>
 </s_list>

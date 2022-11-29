@@ -38,7 +38,7 @@ def imp(imptPath):
     replaces = importConfig['cover']
 
     for replace in replaces:
-        occur = iHtml.select_one('#'+replace)
+        occur = findByRid(iHtml, replace)
         toTag = replaces[replace]
         if occur != None:
             occur.replace_with(BeautifulSoup('<'+toTag+'>\n'+str(occur)+'\n</'+toTag+'>', 'html.parser'))
@@ -52,14 +52,16 @@ def imp(imptPath):
 
     # 4. separate into parts
     try:
-        header = iHtml.select_one('#header')
-        homeCover = iHtml.select_one('#home-cover').parent
-        footer = iHtml.select_one('#footer')
-        lst = iHtml.select_one('#list').parent
+        header = findByRid(iHtml, 'header')
+        homeCover = findByRid(iHtml, 'home-cover').parent
+        article = findByRid(iHtml, 'article').parent
+        footer = findByRid(iHtml, 'footer')
+        lst = findByRid(iHtml, 'list').parent
 
         # 4. put into individual files
         fio.writeText(workDir+'/views/navigation.html', str(header))
         fio.writeText(workDir+'/views/main-cover.html', str(homeCover))
+        fio.writeText(workDir+'/views/article.html', str(article))
         fio.writeText(workDir+'/views/footer.html', str(footer))
         fio.writeText(workDir+'/views/list.html', str(lst))
     except IOError:
@@ -69,3 +71,7 @@ def imp(imptPath):
 
     # print result
     print('Successfully imported \'',imptPath,'\'.', sep='')
+
+def findByRid(html: BeautifulSoup, rid: str):
+    fnd = html.select_one('[rid=\''+rid+'\']')
+    return fnd

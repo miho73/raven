@@ -197,6 +197,19 @@ div.list-container {
             }
         }
     }
+
+    & > .list-paging {
+        width: 100%;
+        text-align: center;
+
+        & a,span {
+            color: var(--caption-gray);
+        }
+
+        & > .no-more-prev, .no-more-next {
+            display: none;
+        }
+    }
 }
 
 

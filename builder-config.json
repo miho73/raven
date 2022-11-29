@@ -8,7 +8,13 @@
             "list": "s_list",
             "home-cover": "s_cover_group",
             "list-empty": "s_list_empty",
-            "list-repeat": "s_list_rep"
+            "list-repeat": "s_list_rep",
+            "list-paging": "s_paging",
+            "list-element": "s_paging_rep",
+
+            "article": "s_article_rep",
+            "article-thumbnail": "s_article_rep_thumbnail",
+            "article-comment-cnt": "s_rp_count"
         }
     }
 }

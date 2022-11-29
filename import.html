@@ -13,7 +13,7 @@
     </head>
     <body id="[##_body_id_##]">
         <div class="layout">
-            <header id="header" class="header">
+            <header rid="header" class="header">
                 <div class="home-link">
                     <a href="/">
                         <h1>[##_title_##]</h1>
@@ -23,12 +23,12 @@
             </header>
             
             <RavenCover>
-                <main id="home-cover">
+                <main rid="home-cover">
                     <p>home cover</p>
                 </main>
     
-                <main id="list">
-                    <div id="list-empty" class="list-empty">
+                <main rid="list">
+                    <div rid="list-empty" class="list-empty">
                         <p>No article was found</p>
                         <ul>
                             <li>Try different keywords.</li>
@@ -36,7 +36,7 @@
                         </ul>
                     </div>
                     <div class="list-container">
-                        <a id="list-repeat" class="list-repeat" href="[##_list_rep_link_##]">
+                        <a rid="list-repeat" class="list-repeat" href="[##_list_rep_link_##]">
                             <img src="[##_list_rep_thumbnail_url_##]" alt="[##_list_rep_title_##] Thumbnail">
                             <div class="article-info">
                                 <h3 class="title">[##_list_rep_title_##]</h3>
@@ -44,11 +44,28 @@
                                 <div class="prev">[##_list_rep_summary_##]</div>
                             </div>
                         </a>
+                        <div rid=list-paging class="list-paging">
+                            <a [##_prev_page_##] class="[##_no_more_prev_##]">&#x25C0; PREV</a>
+                            <a [##_paging_rep_link_##] class="list-element" rid="list-element">[##_paging_rep_link_num_##]</a>
+                            <a [##_next_page_##] class="[##_no_more_next_##]">NEXT &#x25B6;</a>
+                        </div>
                     </div>
                 </main>
             </RavenCover>
 
-            <footer id="footer" class="footer">
+            <RavenArticle>
+                <main rid="article">
+                    <div class="article-header">
+                        <a href="[##_article_rep_link_##]">
+                            <h1>[##_article_rep_title_##]</h1>
+                        </a>
+                    </div>
+                    <hr/>
+                    <div class="article-content">[##_article_rep_desc_##]</div>
+                </main>
+            </RavenArticle>
+
+            <footer rid="footer" class="footer">
                 <div class="links">
                     <a class="link-site" href="https://github.com/miho73" target="_blank" title="Github">
                         <img src="./dev/resources/github.svg" alt="Github Link">
